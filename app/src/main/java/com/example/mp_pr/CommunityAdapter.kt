@@ -43,7 +43,8 @@ class CommunityAdapter(val contentModel: ArrayList<ContentModel>) : RecyclerView
         holder.title.text = contentModel[position].com_title
         holder.content.text = contentModel[position].com_content
         holder.time_stamp.text = contentModel[position].str_timeStamp
-
+        holder.favorite_count.text = contentModel[position].favoriteCount.toString()
+        holder.comment_count.text = contentModel[position].commentCount.toString()
 
         holder.itemView.setOnClickListener {
             ItemClickListener.onClick(it, position)
@@ -55,6 +56,8 @@ class CommunityAdapter(val contentModel: ArrayList<ContentModel>) : RecyclerView
         val title : TextView = itemView.findViewById((R.id.com_title))
         val content : TextView = itemView.findViewById(R.id.com_content)
         val time_stamp : TextView = itemView.findViewById(R.id.com_time)
+        val favorite_count : TextView = itemView.findViewById(R.id.com_favorite_count)
+        val comment_count : TextView = itemView.findViewById(R.id.com_comment_count)
     }
 
 }
