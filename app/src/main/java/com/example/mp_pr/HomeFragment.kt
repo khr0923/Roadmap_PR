@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
                 intent.putExtra("contentFavoriteCount", contentModel[position].favoriteCount)
 
 
-                Log.v("posHome", position.toString())
+                //Log.v("posHome", position.toString())
                 startActivity(intent)
 
             }

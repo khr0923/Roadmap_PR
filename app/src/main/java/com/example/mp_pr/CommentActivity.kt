@@ -41,7 +41,7 @@ class CommentActivity : AppCompatActivity() {
     lateinit var str_title: String
     lateinit var str_contnet: String
     lateinit var str_time: String
-    lateinit var str_count: String
+    var str_comment_count: String = "0"
 
     var contentUid : String? = null
     var currentUid : String? = null
@@ -86,8 +86,6 @@ class CommentActivity : AppCompatActivity() {
         comDetailTime.setText(str_time)
 
         com_favorite_count = findViewById<TextView>(R.id.com_favorite_count)
-        str_count = intent.getStringExtra("contentFavoriteCount").toString()
-        //com_favorite_count.setText(str_count)
 
 //        commentCount = findViewById(R.id.comment_count)
 //        commentCount.setText(comments.size)
@@ -106,12 +104,28 @@ class CommentActivity : AppCompatActivity() {
 
         }
 
+        commentCount = findViewById<TextView>(R.id.comment_count)
+
+
+
+        db?.collection("test")?.document(contentUid!!)
+            ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if(querySnapshot == null) return@addSnapshotListener
+                var contentDTO = querySnapshot.toObject(ContentModel::class.java)
+                if(contentDTO != null){
+                    com_favorite_count.setText(contentDTO.favoriteCount.toString())
+                    //commentCount.setText(contentDTO.)
+                }
+
+            }
+
+
+
         if(currentUid.equals(FirebaseAuth.getInstance().currentUser?.uid.toString())) {
             content_delete_btn.visibility = View.VISIBLE
 //                holder.binding.comment.setTextColor(Color.RED)
 //                holder.binding.commentDeleteBtn.visibility = View.VISIBLE
-                Log.v("태그", currentUid.toString())
-                Log.v("태그", FirebaseAuth.getInstance().currentUser?.uid.toString())
+
         }
 
         content_delete_btn.setOnClickListener {
@@ -119,7 +133,6 @@ class CommentActivity : AppCompatActivity() {
                 .delete()
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        Log.v("태그1", contentUid.toString())
                         finish()
 
                     }
@@ -144,14 +157,15 @@ class CommentActivity : AppCompatActivity() {
             ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 if(querySnapshot == null) return@addSnapshotListener
                 var contentDTO = querySnapshot.toObject(ContentModel::class.java)
-                if(contentDTO?.favorites?.containsKey(uid)!!) {
-                    content_favorite_btn.visibility = View.INVISIBLE
-                }
-                else{
-                    content_favorite_btn.visibility = View.VISIBLE
+                if(contentDTO != null){
+                    if(contentDTO?.favorites?.containsKey(uid)!!) {
+                        content_favorite_btn.visibility = View.INVISIBLE
+                    }
+                    else{
+                        content_favorite_btn.visibility = View.VISIBLE
+                    }
                 }
 
-                Log.v("좋아요 한 사람", contentDTO?.favorites?.containsKey(uid)!!.toString())
             }
 
 
@@ -219,6 +233,7 @@ class CommentActivity : AppCompatActivity() {
             lateinit var commentUID : String
             var comment = comments[position]
             var commentId = commentIdList[position]
+            var deleteCount = 0;
 
             holder.binding.comment.text = comment.comment
             var now : Long? = comment.timeStamp
@@ -227,6 +242,8 @@ class CommentActivity : AppCompatActivity() {
             holder.binding.commentTime.text = time_result.toString()
 
             commentUID = comment.uid.toString()
+
+
 
             if(commentUID.equals(FirebaseAuth.getInstance().currentUser?.uid.toString())) {
                 holder.binding.comment.setTextColor(Color.RED)
@@ -239,19 +256,46 @@ class CommentActivity : AppCompatActivity() {
                 Log.v("태그", "삭제버튼 클릭")
                 Log.v("태그", commentId)
                 val db = Firebase.firestore
+                if(comments.size == 1) {
+                    commentCount.setText("0")
+                    var tsDoc1 = db?.collection("test")?.document(contentUid.toString())
+                    db?.runTransaction {transaction ->
+                        contentModel = transaction.get(tsDoc1!!).toObject(ContentModel::class.java)!!
+
+                        Log.v("model2", contentModel.commentCount.toString())
+                        contentModel?.commentCount = 0
+                        transaction.set(tsDoc1, contentModel)
+                    }
+                    Log.v("model", contentModel.commentCount.toString())
+                    deleteCount++;
+                }
+                //else deleteCount = 0;
+                //Log.v("count", deleteCount.toString())
                 db.collection("test").document(contentUid.toString()).collection("comment").document(commentId)
                     .delete()
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            //Log.v("태그1", contentUid.toString())
 
                         }
                     }
             }
 
+            if(contentModel.commentCount == 1 && deleteCount == 1) {
+                Log.v("aaa", "댓글 한개")
+            }
 
+            str_comment_count = comments.size.toString()
 
+            commentCount.setText(str_comment_count)
 
+            var tsDoc1 = db?.collection("test")?.document(contentUid.toString())
+            db?.runTransaction {transaction ->
+                contentModel = transaction.get(tsDoc1!!).toObject(ContentModel::class.java)!!
+
+                Log.v("model2", contentModel.commentCount.toString())
+                contentModel?.commentCount = comments.size
+                transaction.set(tsDoc1, contentModel)
+            }
 
 
         }
