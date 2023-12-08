@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/roadmapIv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/front_end_cover"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/roadmapTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/npsfont_regular"
+            android:text="프론트엔드 개발자"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/roadmapIv"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="@+id/roadmapIv"
+            app:layout_constraintTop_toBottomOf="@+id/roadmapIv" />
+
+        <TextView
+            android:id="@+id/roadmapComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/npsfont_regular"
+            android:lineSpacingExtra="5dp"
+            android:maxLines="2"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:text="프론트엔드 개발자는 백엔드 API에서 가져온 데이터의 출력, 입력을 통한 비즈니스 로직 구성과 사용자와 대화하는 사용자 인터페이스 부분을 작업하는 개발자를 말합니다."
+            android:textColor="#B2B2B2"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/roadmapIv"
+            app:layout_constraintStart_toStartOf="@+id/roadmapIv"
+            app:layout_constraintTop_toBottomOf="@+id/roadmapTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

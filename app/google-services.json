@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "863012135672",
+    "firebase_url": "https://mp-pr-4a009-default-rtdb.firebaseio.com",
+    "project_id": "mp-pr-4a009",
+    "storage_bucket": "mp-pr-4a009.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863012135672:android:9b8c491eadd020626ed10d",
+        "android_client_info": {
+          "package_name": "com.example.mp_pr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtdkGBtbbevczwrw9Y-WRnHx14fUQEYaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

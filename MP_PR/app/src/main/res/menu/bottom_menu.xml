@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="home" />
+
+    <item
+        android:id="@+id/roadmap"
+        android:enabled="true"
+        android:icon="@drawable/ic_road_map"
+        android:title="roadmap"/>
+
+    <item
+        android:id="@+id/myPage"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle"
+        android:title="mypage" />
+
+
+</menu>
