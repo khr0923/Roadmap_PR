@@ -6,18 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp.SignUpActivity"
-    android:background="@color/black">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/Sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="회원가입"
+        android:layout_marginTop="110dp"
+        android:text="@string/signup"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:fontFamily="@font/npsfont_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,22 +36,10 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginLeft="20dp"
+            android:id="@+id/emailTextInputLayout"
             android:layout_marginRight="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/signup_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="이름"
-                android:background="@color/white"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -58,54 +47,61 @@
             <EditText
                 android:id="@+id/signup_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="이메일"
-                android:background="@color/white"/>
+                android:layout_height="65dp"
+                android:hint="@string/email"
+                android:fontFamily="@font/npsfont_regular"
+                android:background="@drawable/edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp">
 
 
         <EditText
                 android:id="@+id/signup_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="비밀번호"
-                android:background="@color/white"/>
+                android:layout_height="65dp"
+                android:hint="@string/pw"
+                android:fontFamily="@font/npsfont_regular"
+                android:background="@drawable/edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordTextInputLayout"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp">
 
 
         <EditText
                 android:id="@+id/signup_passwordcheck"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="비밀번호 확인"
-                android:background="@color/white"/>
+                android:layout_height="65dp"
+                android:hint="@string/pwcheck"
+                android:fontFamily="@font/npsfont_regular"
+                android:background="@drawable/edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_marginTop="50dp"
             android:id="@+id/signUp_button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_gravity="center"
-            android:text="다음"/>
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/buttoncolor"
+            android:fontFamily="@font/npsfont_regular"
+            android:text="@string/signup"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

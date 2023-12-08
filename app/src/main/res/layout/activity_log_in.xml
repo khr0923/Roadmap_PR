@@ -18,108 +18,80 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginActivity"
-        android:background="@color/black">
-
-        <ImageView
-            android:id="@+id/logo_imageview"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@drawable/logo" />
+        android:background="@color/black"
+        tools:context=".LoginActivity">
 
         <LinearLayout
             android:id="@+id/edittext_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-60dp"
-            android:layout_below="@+id/logo_imageview"
+            android:layout_marginTop="250dp"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <EditText
                     android:id="@+id/edittext_id"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="이메일"
-                    android:background="@color/white"/>
+                    android:layout_height="65dp"
+                    android:background="@drawable/edittext"
+                    android:fontFamily="@font/npsfont_regular"
+                    android:hint="@string/email"
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp">
 
                 <EditText
                     android:id="@+id/edittext_password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="비밀번호"
-                    android:background="@color/white"/>
+                    android:layout_height="65dp"
+                    android:background="@drawable/edittext"
+                    android:fontFamily="@font/npsfont_regular"
+                    android:hint="@string/pw"
+                    android:textColorHint="@color/white" />
+
             </com.google.android.material.textfield.TextInputLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:id="@+id/button_linearlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@+id/edittext_linearlayout"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
+            android:layout_marginTop="33dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/SignInButton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="로그인" />
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttoncolor"
+                android:fontFamily="@font/npsfont_regular"
+                android:text="@string/signin"
+                android:textColor="@color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/SignUpButton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="회원가입"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/FindButton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="아이디/비밀번호 찾기" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/facebook_login_button"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/btn_signin_facebook"
-                android:text="페이스북 로그인"
-                android:textColor="@android:color/white" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/google_login_button"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/btn_signin_google"
-                android:text="구글로 로그인"
-                android:textColor="@android:color/white" />
-
-
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/buttoncolor"
+                android:fontFamily="@font/npsfont_regular"
+                android:text="@string/signup"
+                android:textColor="@color/white" />
         </LinearLayout>
 
     </RelativeLayout>
