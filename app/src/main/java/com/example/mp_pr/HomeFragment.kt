@@ -35,6 +35,7 @@ class HomeFragment : Fragment() {
     var db = Firebase.firestore
     var contentModel : ArrayList<ContentModel> = arrayListOf()
     var contentUidList : ArrayList<String> = arrayListOf()
+    var userUidList : ArrayList<String> = arrayListOf()
     //val adapter = CommunityAdapter(contentModel)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,10 +49,15 @@ class HomeFragment : Fragment() {
         db?.collection("test")?.orderBy("timeStamp", Query.Direction.DESCENDING)?.addSnapshotListener { querySnapshot, firebaseFirestoreExection ->
             contentModel.clear()
             contentUidList.clear()
-            for(snapshot in querySnapshot!!.documents) {
-                val item = snapshot.toObject(ContentModel::class.java)
-                contentModel.add(item!!)
-                contentUidList.add(snapshot.id)
+            if (querySnapshot != null) {
+                for(snapshot in querySnapshot!!.documents) {
+                    val item = snapshot.toObject(ContentModel::class.java)
+                    contentModel.add(item!!)
+                    contentUidList.add(snapshot.id)
+                    userUidList.add(snapshot.id)
+
+
+                }
             }
             adapter.notifyDataSetChanged()
         }
@@ -72,6 +78,8 @@ class HomeFragment : Fragment() {
                 intent.putExtra("contentUid", contentUidList[position])
                 intent.putExtra("contentFavoritesPos", position)
                 intent.putExtra("contentFavoriteCount", contentModel[position].favoriteCount)
+
+
 
 
                 //Log.v("posHome", position.toString())

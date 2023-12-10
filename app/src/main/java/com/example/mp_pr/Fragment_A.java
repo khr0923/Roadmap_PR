@@ -9,7 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class Fragment_A extends Fragment {
+    //var userUidList : ArrayList<String> = arrayListOf()
 
     @Nullable
     @Override
