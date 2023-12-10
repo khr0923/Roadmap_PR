@@ -33,10 +33,12 @@ class SignUpActivity : AppCompatActivity(){
 
         auth = Firebase.auth
         signUpEmail = findViewById<EditText>(R.id.signup_email)
+        signUpEmail.hint = "이메일"
         signUpPW = findViewById<EditText>(R.id.signup_password)
+        signUpPW.hint = "비밀번호"
         signUpPWCHECK = findViewById<EditText>(R.id.signup_passwordcheck)
+        signUpPWCHECK.hint = "비밀번호 확인"
         signUpBtn = findViewById<Button>(R.id.signUp_button)
-
         emailTextInputLayout = findViewById(R.id.emailTextInputLayout)
         passwordTextInputLayout = findViewById(R.id.passwordTextInputLayout)
         confirmPasswordTextInputLayout = findViewById(R.id.confirmPasswordTextInputLayout)

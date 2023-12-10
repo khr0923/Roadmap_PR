@@ -48,7 +48,9 @@ class LogInActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         logInEmail = findViewById<EditText>(R.id.edittext_id)
+        logInEmail.setHint("이메일");
         logInPW = findViewById<EditText>(R.id.edittext_password)
+        logInPW.setHint("비밀번호");
         LogInBtn = findViewById<Button>(R.id.SignInButton)
         SignUpButton = findViewById<Button>(R.id.SignUpButton)
 

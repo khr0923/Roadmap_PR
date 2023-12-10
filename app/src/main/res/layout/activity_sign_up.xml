@@ -39,7 +39,6 @@
             android:id="@+id/emailTextInputLayout"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -48,13 +47,13 @@
                 android:id="@+id/signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:hint="@string/email"
                 android:fontFamily="@font/npsfont_regular"
                 android:background="@drawable/edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordTextInputLayout"
+            app:passwordToggleEnabled="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
@@ -64,9 +63,9 @@
 
         <EditText
                 android:id="@+id/signup_password"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:hint="@string/pw"
                 android:fontFamily="@font/npsfont_regular"
                 android:background="@drawable/edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -74,6 +73,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/confirmPasswordTextInputLayout"
+            app:passwordToggleEnabled="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
@@ -83,9 +83,9 @@
 
         <EditText
                 android:id="@+id/signup_passwordcheck"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:hint="@string/pwcheck"
                 android:fontFamily="@font/npsfont_regular"
                 android:background="@drawable/edittext"/>
         </com.google.android.material.textfield.TextInputLayout>
