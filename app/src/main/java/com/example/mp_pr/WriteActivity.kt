@@ -43,6 +43,7 @@ class WriteActivity : AppCompatActivity() {
             contentModel.str_timeStamp = time_result.toString()
             //contentModel.favoriteCount
 
+
             db.collection("test").add(contentModel).addOnSuccessListener { documentReference ->
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
             }

@@ -211,9 +211,6 @@ class CommentActivity : AppCompatActivity() {
                     }
                     notifyDataSetChanged()
 
-                    for(i in commentIdList) {
-                        //Log.v("태그2", i)
-                    }
 
 
 
